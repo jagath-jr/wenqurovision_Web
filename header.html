@@ -1,16 +1,29 @@
-<header class="header-container">
-  <a href="/index.html"><div class="navbar-logo"></div></a>
 
-  <nav class="navbar" id="nav-menu">
-    <a href="/index.html">Home</a>
-    <a href="/services/services.html">Our services</a>
-    <a href="/about_us.html">About us</a>
-    <a href="/contact_us.html" class="contact">Contact us</a>
-  </nav>
+ <div id="headerWrapper">
+    <header class="top-bar" id="topBar">
+      <div class="contact">
+  <a href="tel:+97125598441">
+    <img src="images/call.png" alt="Call Icon" class="icon" /> +971 2 559 8441
+  </a>
+</div>
+<div class="email">
+  <a href="mailto:Info@maxmilleruae.com">✉ Info@maxmilleruae.com</a>
+</div>
+    </header>
 
-  <button class="navbar-toggle" id="nav-toggle" aria-label="menu">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </button>
-</header>
+    <nav class="navbar" id="navbar">
+      <div class="logo">
+        <img src="logo_with_name-removebg-preview.png" alt="Max Miller" />
+      </div>
+      <div class="menu-icon" onclick="toggleMenu()">☰</div>
+      <div class="nav-right" id="navMenu">
+        <ul class="nav-links">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./about.html">About us</a></li>
+          <li><a href="./services.html">Our Services</a></li>
+          <li><a href="./gallery.html">Gallery</a></li>
+        </ul>
+        <button onclick="location.href='./contacts.html'" class="btn-outline">Contact us</button>
+      </div>
+    </nav>
+  </div>
