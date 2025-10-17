@@ -1,0 +1,377 @@
+* {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; 
+    -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
+    outline: none !important;
+}
+
+
+
+/* === Existing Desktop Styles (Unchanged) === */
+body {
+  background: linear-gradient(120deg, #ffffff 0%, #ffffff 100%);
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  padding-top: 120px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  height: 5rem;
+  padding: 0 2rem; /* Added padding for spacing on all screens */
+}
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* background: white; */
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+
+.header-container.hide {
+  transform: translateY(-100%);
+}
+.navbar-logo {
+  height: 4rem;
+  width: 10rem; /* Adjust based on your logo's aspect ratio */
+  display: block;
+  background-image: url('../img/Duvitra_Innovations_LOGO.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.navbar {
+  background: rgba(255, 255, 255, 0.5); /* More transparent background */
+  backdrop-filter: blur(12px); /* This creates the glass effect */
+  -webkit-backdrop-filter: blur(12px); /* For Safari support */
+  border-radius: 3rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5); /* Lighter shadow for better glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.18); /* Optional subtle border */
+  
+  display: flex;
+  gap: 3rem;
+  padding: 0.5rem .8rem;
+  align-items: center;
+}
+.navbar a {
+  text-decoration: none;
+  color: #222;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 0.625rem;
+  border-radius: 24px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.navbar a.contact {
+  border: 2px solid #222;
+  background: #fff;
+  color: #222;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+
+.navbar a.contact:hover {
+  background: #222;
+   background-image: linear-gradient(182deg, #FB6D53 1.77%, #FFB61D 97.77%);
+  color: #fff;
+}
+
+.navbar a:not(.contact):hover {
+  background:  linear-gradient(182deg, #FB6D53 1.77%, #FFB61D 97.77%);
+  
+}
+
+/* Hide toggle button on desktop */
+.navbar-toggle {
+  display: none;
+}
+
+
+/* === NEW Mobile Responsive Styles === */
+@media screen and (max-width: 820px) {
+  .header-container {
+    justify-content: space-between; /* Pushes logo and toggle to edges */
+  }
+
+.navbar {
+    position: absolute;
+    top: 120px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: #fff;
+    padding: 2rem; /* Adjusted padding for better spacing */
+    gap: 1.5rem;
+    align-items: flex-start; /* Aligns items to the left */
+    transform: translateY(-150%);
+    border-radius: 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+  /* Style the hamburger toggle button */
+  .navbar-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001; /* Ensure it's above other elements */
+  }
+
+  .navbar-toggle .bar {
+    height: 3px;
+    width: 100%;
+    background-color: #333;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Animate hamburger to 'X' */
+  .navbar-toggle.active .bar:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+  }
+  .navbar-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .navbar-toggle.active .bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+  }
+}
+
+/*========Footer section=========*/
+        /* General Footer Styling */
+.site-footer {
+     /* Fallback color */
+    background-image: linear-gradient(rgb(255,251,250), rgb(255,251,250));
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #000000;
+    padding: 80px 0 0 0;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    
+    z-index: 1; /* This is fine as the container */
+    max-width: 100vw;
+    margin: 0 auto;
+}
+
+/* Faded Background Text - Now on top layer */
+.footer-background-text {
+    position: absolute;
+    top: 70% !important;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    font-size: clamp(6.2rem, 25vw, 25rem);
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.2);
+    z-index: 100; /* Increased to ensure it's on top */
+    pointer-events: none; /* Optional: prevents the text from blocking clicks */
+}
+        /* Content Container */
+        .site-footer .container {
+            max-width: 75rem;
+            margin: 0 auto;
+            padding: 0 1.2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-content {
+             display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12.75rem, 1fr));
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 280px;
+        }
+
+
+        /* Column 1: About & Social */
+        .footer-about .footer-logo {
+            width: 10rem;
+            height: 4rem;
+             background-image: url('../img/Duvitra_Innovations_LOGO.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+        }
+
+        .footer-about .footer-tagline {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0 0 24px 0;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border: 1.5px solid #000000;
+            border-radius: 50%;
+            color: #0c0c0c;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        /* Columns 2 & 3: Links & Contact */
+        .footer-column h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #000000;
+        }
+
+        .footer-links ul,
+        .footer-contact ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li,
+        .footer-contact li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a,
+        .footer-contact a {
+            color: #070707;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #383838;
+        }
+
+        .footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .footer-contact i {
+            font-size: 18px;
+            flex-shrink: 0;
+            margin-top: 5px;
+            color: #050505;
+        }
+        .copyright {
+  color: #666;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+.footer-bottom-unik {
+    background-color: rgba(255, 251, 250, 1);
+    padding: 20px 5% 30px;
+    border-top: 1px solid #363B46;
+    text-align: center;
+}
+
+.footer-social-icons-unik {
+    margin-bottom: 20px;
+}
+
+.footer-social-icons-unik a {
+    color: #ffffff;
+    font-size: 1.3rem;
+    margin: 0 12px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-social-icons-unik a:hover {
+    transform: scale(1.2) translateY(-2px);
+    color: #cccccc;
+}
+
+.footer-copyright-unik p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+        /* --- Mobile Responsiveness (Updated) --- */
+
+        @media (max-width: 768px) {
+            .footer-background-text {
+                top: 90% !important;
+            }
+
+            .site-footer {
+                padding: 60px 0 0 0;
+               
+            }
+
+            .site-footer .container {
+                padding: 0 15px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 50px;
+                text-align: center;
+            }
+
+            .footer-column {
+                min-width: 100%;
+                text-align: center;
+            }
+
+            /* Centers the logo and its container */
+            .footer-about {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-about .footer-logo {
+                margin-bottom: 15px; /* Adjust spacing below the logo */
+            }
+
+            .footer-about .footer-tagline {
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+            .social-icons {
+                justify-content: center;
+                margin-top: 15px;
+            }
+
+            .footer-contact li {
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+            }
+        }

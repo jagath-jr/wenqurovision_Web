@@ -1,0 +1,1059 @@
+
+:root {
+    --primary-text-color: #111111;
+    --secondary-text-color: #555555;
+    --card-background-color: #fff7f5; /* A light pink/peach shade from the image */
+    --page-background-color: #ffffff;
+    --card-border-color: #ffeae3;
+}
+
+.hero {
+    height: 110vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    top:-8rem;
+}
+
+.lines-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 1;
+}
+
+.line {
+    flex-grow: 1;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #ffffff, #fdc8b9, #ffdc9f, #ffdfa1, #fdc8b9, #ffffff);
+    background-size: 100% 400%;
+}
+
+.line::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(160, 153, 153, 0.5), rgba(160, 153, 153, 0.1));
+    z-index: 1;
+}
+
+.line::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 2px;
+    height: var(--drop-height);
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, var(--opacity-peak)), transparent);
+    opacity: 0;
+    animation: slow-drop var(--drop-duration) infinite ease-in;
+    animation-delay: var(--animation-delay, 0ms);
+    filter: blur(0.4px);
+}
+
+@keyframes slow-drop {
+    0% { opacity: 0.2; transform: translateY(-100%); }
+    20% { opacity: var(--opacity-peak); }
+    100% { transform: translateY(100vh); opacity: var(--opacity-peak); }
+}
+
+.hero-content {
+    max-width: 800px;
+    position: relative;
+    z-index: 2;
+    color: #000000;
+    /* text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+    padding-bottom: 150px;
+}
+
+.hero-title {
+    font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 2.5rem;
+    
+    margin-bottom: 1rem;
+    margin-top:-1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    /* margin-bottom: 80px; */
+}
+
+.stats-section {
+    position: absolute;
+    top: 63%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4rem;
+    padding: 0 20px;
+    color: #030303;
+    /* text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); */
+}
+
+.stats-item {
+    position: relative;
+    padding-left: 20px;
+    max-width: 300px;
+}
+
+.stats-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 4px;
+    height: 90%;
+    background: linear-gradient(182deg, #FB6D53 1.77%, #FFB61D 97.77%);
+    border-radius: 2px;
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: #000000;
+}
+
+.stat-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #000000;
+}
+
+.stats-item p {
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.8);
+    line-height: 1.6;
+}
+
+.btn {
+    padding: 0.8rem 1.8rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    width: 7rem;
+}
+
+.btn-primary {
+    background-color: #000;
+     background-image: linear-gradient(182deg, #FB6D53 1.77%, #FFB61D 97.77%);
+    color: #fff;
+    /* border-color: #000; */
+}
+
+.btn-primary:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #000000;
+    border: 2px solid #fff;
+    backdrop-filter: blur(5px);
+     border-color: #000;
+}
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+        margin-top:-6rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 7rem;
+    }
+    
+    .stats-section {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        bottom: 20px;
+    }
+
+    .stats-item {
+        max-width: 150px;
+        padding-left: 15px;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .stat-title {
+        font-size: 1rem;
+    }
+
+    .stats-item p {
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content {
+        padding-bottom: 1rem;
+    }
+    
+    .stats-section {
+        gap: 1rem;
+        bottom: 9rem;
+    }
+
+    .stats-item {
+        max-width: 120px;
+        padding-left: 12px;
+    }
+
+    .stat-number {
+        font-size: 1.75rem;
+    }
+
+    .stat-title {
+        font-size: 0.875rem;
+    }
+
+    .stats-item p {
+        font-size: 0.75rem;
+    }
+}
+
+/*========About Us Section========*/
+
+        .about-section {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: -8rem auto;
+            padding: 1rem;
+        }
+
+        .about-image-container {
+            flex-basis: 50%;
+            min-width: 300px; /* Prevents the animation from getting too small */
+        }
+
+        /* Style the div container for the Lottie animation */
+        #lottie-animation-container {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1; /* Ensures the container maintains a square shape */
+        }
+
+        .about-content {
+            flex-basis: 50%;
+            margin: 0 1rem;
+        }
+
+        /* --- Text and Button Styling --- */
+        .about-heading {
+            font-size: 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-subheading {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-description {
+            font-size: 1.125rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+
+        .btn-dark {
+            display: inline-block;
+            background-color: #111;
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 50px; /* Pill shape */
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s ease-out, background-color 0.2s ease;
+        }
+
+        .btn-dark:hover {
+            transform: scale(1.05);
+            background-color: #333;
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 992px) {
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+        }
+
+        /* --- Animation Pre-Styling --- */
+        .animate-text {
+            opacity: 0;
+        }
+
+
+
+
+/* Main content container */
+.main-content_what-we-offer-a1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0rem 1.5rem 1rem 1.5rem;
+    min-height: 50vh; /* Ensure it takes up a good portion of the screen */
+}
+
+.offerings-section_what-we-offer-a1 {
+    width: 100%;
+    max-width: 1100px; /* Max width of the section */
+}
+
+/* Grid layout for the offerings */
+.offerings-grid_what-we-offer-a1 {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to a single column for mobile */
+    gap: 0; /* No gap as borders will handle separation */
+    /* Removed container-level borders */
+}
+
+/* Individual item styling */
+.offering-item_what-we-offer-a1 {
+    padding: 2.5rem;
+    text-align: center;
+    /* Apply bottom border for separation in mobile view */
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Remove the bottom border from the very last item in the list */
+.offering-item_what-we-offer-a1:last-child {
+    border-bottom: none;
+}
+
+
+/* Specific styling for the main intro item */
+.intro-item_what-we-offer-a1 {
+    text-align: left;
+}
+
+.section-title_what-we-offer-a1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #000;
+}
+
+.section-description_what-we-offer-a1 {
+    font-size: 1rem;
+    color: #555;
+    max-width: 450px; /* Limit line length for readability */
+}
+
+/* Icon styling */
+.icon_what-we-offer-a1 {
+    margin-bottom: 1.5rem;
+    width: 50px; /* Control icon size */
+    height: 50px;
+    stroke: #333; /* Set the color of the icon lines */
+}
+
+/* Title for each offering */
+.offering-title_what-we-offer-a1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #000;
+}
+
+/* Paragraph text for each offering */
+.offering-item_what-we-offer-a1 p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0;
+    text-align: justify;
+}
+
+/* Responsive Design: Media Query for tablets and desktops */
+@media (min-width: 768px) {
+    /* Switch to a 2-column grid on larger screens */
+    .offerings-grid_what-we-offer-a1 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Reset all borders for items in desktop view first */
+    .offering-item_what-we-offer-a1 {
+        border: none;
+    }
+
+    /* Add right border to the first item in each row (the left column) */
+    .offerings-grid_what-we-offer-a1 .offering-item_what-we-offer-a1:nth-child(2n-1) {
+        border-right: 1px solid #e0e0e0;
+    }
+
+    /* Add bottom border to the first two items (the top row) */
+    .offerings-grid_what-we-offer-a1 .offering-item_what-we-offer-a1:nth-child(-n+2) {
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    /* Center the text for all items on larger screens */
+    .offering-item_what-we-offer-a1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .intro-item_what-we-offer-a1 {
+        align-items: flex-start; /* Re-align intro item to the left */
+        text-align: left;
+    }
+}
+
+/* * =====================================================================
+ * Logo Slider Section Styling
+ * ===================================================================== */
+.logo-slider-section-2025 {
+    width: 100%;
+    padding: 4rem 0;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* * =====================================================================
+ * Logo Slider Container
+ * ===================================================================== */
+.logo-slider-2025 {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+
+/* * =====================================================================
+ * Logos Slide Track
+ * ===================================================================== */
+.logos-slide-2025 {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    width: max-content; /* Important for infinite effect */
+    /* REMOVED: The 'animation' property is no longer needed */
+    /* REMOVED: The 'will-change' property is handled well by GSAP */
+}
+
+/* * =====================================================================
+ * Logo Images
+ * ===================================================================== */
+.logos-slide-2025 img {
+    height: 6em;
+    width: auto;
+    flex-shrink: 0; /* Prevents logos from shrinking */
+    opacity: 1;
+    /* transition: opacity 0.3s ease; Simplified transition */
+}
+
+/* * =====================================================================
+ * Hover Effects
+ * ===================================================================== */
+/* REMOVED: Pausing is now handled by JavaScript/GSAP */
+
+/* .logos-slide-2025 img:hover {
+    opacity: 1;
+} */
+
+/* * =====================================================================
+ * Keyframe Animation
+ * ===================================================================== */
+/* REMOVED: @keyframes are no longer needed */
+
+/* * =====================================================================
+ * Responsive Design
+ * ===================================================================== */
+@media (max-width: 768px) {
+    .logos-slide-2025 {
+        gap: 2rem;
+    }
+    .logos-slide-2025 img {
+        height: 4rem;
+    }
+}
+ 
+/*
+--- Services Section Styling ---
+
+ .services-section {
+            padding: 60px 0;
+            background-color: #fff;
+            position: relative;
+            z-index: 1;
+            top: -1rem;
+        }
+
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start; 
+        }
+
+    
+        .service-intro .section-title {
+            font-size: 2.5rem; 
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .service-intro .section-description {
+            font-size: 1rem; 
+            color: #555;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .intro-image-container {
+            width: 100%;
+        }
+
+       
+        .service-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px; 
+            padding-top: 1.5rem; 
+        }
+
+    
+       
+        .service-item {
+            perspective: 1000px; 
+            background-color: transparent; 
+            border: none;
+            height: 12rem;
+        }
+
+        .service-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            cursor: pointer; 
+        }
+
+        
+        .service-card-front,
+        .service-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; 
+            backface-visibility: hidden; 
+
+           
+            padding: 2.5rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            box-sizing: border-box; 
+        }
+
+        
+        .service-card-front, 
+        .service-card-back {
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        
+        .service-card-back {
+            transform: rotateX(180deg);
+        }
+
+        .service-item .service-title {
+            font-size: 1.5rem; 
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .service-item .service-description {
+            font-size: 1rem; 
+            color: #555;
+            margin-bottom: 0;
+            text-align: justify;
+        }
+
+        
+        
+
+        @media (max-width: 992px) {
+            .services-grid {
+                gap: 30px;
+            }
+
+            .service-intro .section-title {
+                font-size: 2rem;
+            }
+
+            .service-item .service-title {
+                font-size: 1.25rem;
+            }
+        }
+
+      
+        @media (max-width: 768px) {
+            .services-grid {
+                
+                grid-template-columns: 1fr;
+            }
+
+            .service-list {
+                padding-top: 0; 
+            }
+
+            .service-intro .section-title,
+            .service-intro .section-description {
+                text-align: center;
+            }
+            .service-item {
+                min-height: 10rem; 
+            }
+        }
+            
+        
+        */
+
+
+/* Services Section Styling */
+.svs-section {
+    padding: 60px 20px; /* Add padding for top/bottom and left/right */
+    text-align: center;
+}
+
+.svs-container {
+    max-width: 1200px;
+    margin: 0 auto; /* Center the content */
+}
+
+/* Section Header (Title and Subtitle) */
+.svs-section-header {
+    max-width: 700px;
+    margin: 0 auto 50px auto; /* Center and add space below */
+}
+
+.svs-section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.svs-section-header p {
+    font-size: 1rem;
+    color: var(--secondary-text-color);
+    line-height: 1.6;
+}
+
+/* Grid Layout for Service Cards */
+.svs-grid {
+    display: grid;
+    /* Create 3 columns of equal width on desktops */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; /* Space between the cards */
+}
+
+/* Individual Service Card Styling */
+.svs-card {
+    background-color: var(--card-background-color);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: left;
+    border: 1px solid var(--card-border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.svs-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+}
+
+.svs-card-icon {
+    margin-bottom: 20px;
+}
+
+.svs-card-icon img {
+    width: 50px; /* Control icon size */
+    height: 50px;
+}
+
+.svs-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.svs-card p {
+    font-size: 0.95rem;
+    color: var(--secondary-text-color);
+    line-height: 1.6;
+}
+
+/* ================================================================= */
+/* Responsive Design: Media Queries */
+/* ================================================================= */
+
+/* For Tablets (e.g., screen widths up to 992px) */
+@media (max-width: 992px) {
+    .svs-grid {
+        /* Switch to 2 columns on tablets */
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .svs-section-header h2 {
+        font-size: 2.2rem;
+    }
+}
+
+/* For Mobile Phones (e.g., screen widths up to 768px) */
+@media (max-width: 768px) {
+    .svs-section {
+        padding: 40px 15px;
+    }
+
+    .svs-grid {
+        /* Stack to a single column on mobile */
+        grid-template-columns: 1fr;
+    }
+    
+    .svs-section-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .svs-section-header p {
+        font-size: 0.9rem;
+    }
+
+    .svs-card {
+        padding: 30px 25px;
+        text-align: center; /* Center content on mobile for better readability */
+    }
+}
+
+/* --- Container for consistent centering and padding --- */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Products Section Styling --- */
+.products-section {
+    padding: 60px 0; /* Vertical padding */
+    text-align: center;
+}
+
+/* --- Section Header (Title and Subtitle) --- */
+.section-header {
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #111827;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #4b5563;
+}
+
+/* --- Product Cards Layout --- */
+.product-cards-container {
+    display: grid;
+    /* Create 3 columns on desktop, 2 on tablet, and 1 on mobile */
+    grid-template-columns: repeat(auto-fit, minmax(13.75rem, 1fr));
+    gap: 30px; /* Space between cards */
+}
+
+/* --- Individual Product Card Styling --- */
+.product-card {
+    position: relative; /* Needed for absolute positioning of children */
+    height: 400px;
+    border-radius: 12px;
+    overflow: hidden; /* Hides parts of the image that go beyond the border radius */
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Using flexbox to align content */
+    flex-direction: column;
+    justify-content: flex-end; /* Pushes content to the bottom */
+    text-align: left;
+}
+
+.product-card:hover {
+    transform: translateY(-10px); /* Lifts the card on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Card Background Image --- */
+.card-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the card without distortion */
+    z-index: 1;
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover .card-background-image {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* --- Gradient Overlay for Text Readability --- */
+.product-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%);
+    z-index: 2;
+}
+
+/* --- Card Content (Text) --- */
+.card-content {
+    position: relative;
+    z-index: 3;
+    padding: 25px;
+    border-radius: 12px; /* Rounded corners for the glass effect */
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Frosted glass blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.card-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #fff; /* Ensure text is white for contrast */
+}
+
+.card-content p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    opacity: 0.9;
+    color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+}
+
+/* --- Special Styling for the CRM Card Icon --- */
+.crm-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    margin-bottom: 15px;
+}
+
+.crm-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .products-section {
+        padding: 40px 0;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .section-header p {
+        font-size: 1rem;
+    }
+}
+
+
+/* Testimonials Section Styles */
+
+.testimonials-container {
+    text-align: center;
+    margin: 3rem;
+}
+
+/* Section Header Styles */
+.section-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    margin-top: 5rem;
+}
+
+.section-header p {
+    font-size: 1.125rem;
+    color: #555;
+    margin-bottom: 3rem;
+}
+
+/* Testimonials Grid Layout */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12.75rem, 1fr));
+    gap: 2rem;
+}
+
+/* Individual Testimonial Card Styles */
+.testimonial-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.testimonial-card blockquote {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.testimonial-card blockquote p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Allows quote to take up available space */
+    text-align: justify;
+    font-style: italic;
+}
+
+/* Star Rating Styles */
+.rating {
+    color: #ffc107;
+    margin-bottom: 1.5rem;
+}
+
+.rating span {
+    font-size: 1.25rem;
+}
+
+/* Author Information Styles */
+.author-info .author-name {
+    font-weight: 700;
+    margin: 0;
+}
+
+.author-info .author-title {
+    color: #777;
+    margin: 0.25rem 0;
+}
+
+.author-info .author-company {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: #333;
+    margin-top: 0.5rem;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .section-header p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
