@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery-ALUCAD</title>
+    <link rel="icon" type="image/x-icon" href="titleImg.png">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="common.css" />
+    <link rel="stylesheet" href="gallery.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+
+<body>
+  <div id="headerWrapper">
+    <header class="top-bar" id="topBar">
+      <div class="contact">
+  <a href="tel:+97125598441">
+    <img src="images/call.png" alt="Call Icon" class="icon" /> +971 2 559 8441
+  </a>
+</div>
+<div class="email">
+  <a href="mailto:Info@maxmilleruae.com">✉ Info@maxmilleruae.com</a>
+</div>
+    </header>
+
+    <nav class="navbar" id="navbar">
+       <div class="logo">
+        <img src="logo_with_name-removebg-preview.png" alt="Max Miller" />
+      </div>
+      <div class="menu-icon" onclick="toggleMenu()">☰</div>
+      <div class="nav-right" id="navMenu">
+        <ul class="nav-links">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./about.html">About us</a></li>
+          <li><a href="./services.html">Our Services</a></li>
+          <li><a href="./gallery.html">Gallery</a></li>
+        </ul>
+        <button onclick="location.href='./contacts.html'" class="btn-outline">Contact us</button>
+      </div>
+    </nav>
+  </div>
+
+    <!-- Hero Banner -->
+    <!-- <section class="hero">
+        <div class="hero-content">
+            <h1>Gallery</h1>
+            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
+                Latin literature from 45 BC,</p>
+        </div>
+    </section> -->
+    <section class="services-hero">
+        <div class="banner" data-aos="fade-down" data-aos-delay="200">
+            <h2>Gallery</h2>
+        </div>
+    </section>
+    <!-- Gallery Description -->
+    <section class="description">
+        <p>
+            Discover a showcase of our completed projects and ongoing works that reflect our expertise, quality, and commitment in the construction industry. From residential and commercial developments to steel fabrication, interior fit-outs, and MEP solutions, our gallery highlights the diverse services and craftsmanship that define Max Miller General Contracting LLC.
+        </p>
+    </section>
+
+    <!-- Gallery Grid -->
+    <main class="gallery-section">
+        <!-- 9 Placeholder Cards -->
+        <div class="gallery-grid">
+            <!-- Repeat this block for each image -->
+            <main class="gallery-section">
+                <div class="gallery-grid" id="galleryDiv">
+                    
+                </div>
+            </main>
+
+        </div>
+    </main>
+
+
+      <div id="whatsapp">
+    <a href="https://api.whatsapp.com/send?phone=+971552469258&text=Hello! I would like to know more about your products." target="_blank" class="wtsapp"><i class="fab fa-whatsapp"></i></a>
+  </div>
+
+
+<!---===========footer =========-->
+ <footer class="site-footer">
+
+        <div class="container">
+            <div class="footer-content">
+
+                <!-- Column 1: About & Social -->
+                <div class="footer-column footer-about">
+                    <div class="footer-logo"><h2>Max Miller General Contracting LLC</h2></div>
+                    <p class="footer-tagline">Delivering excellence in construction since 2004. We specialize in innovative, sustainable, and high-quality building solutions for public and private sectors, with a proven record of timely project completion and trusted partnerships across the region.</p>
+                    <div class="social-icons">
+<a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+<a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+<a href="https://www.linkedin.com/in/yourprofilename" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+</div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-column footer-links">
+                    <h4>QUICK LINKS</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="/services.html">Our Services</a></li>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contacts.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact Us -->
+                <div class="footer-column footer-contact">
+                    <h4>CONTACT US</h4>
+                    <ul>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>
+                                Mussafah, Abu Dhabi UAE <br>
+                                P.O.Box : 32551 
+
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span><a href="tel:+97125598441">+971 2 559 8441</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span><a href="mailto:Info@maxmilleruae.com">Info@maxmilleruae.com</a></span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+         <div class="footer-bottom">&copy; 2025 Max Miller. All Rights Reserved.</div>
+    </div>
+    </footer>
+
+
+     <script src="main.js"></script>
+       <script src="common.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
+</script>
+<script src="script.js"></script>
+</body>
+
+</html>
