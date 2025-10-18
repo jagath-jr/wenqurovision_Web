@@ -306,7 +306,8 @@
   border-radius: 16px;
   text-align: left;
   color: #ffffff;
-  background: #A31F14;
+  background: #E17D27;
+  /* opacity: 0.58; */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
@@ -314,7 +315,9 @@
 .stat-box:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-  background-color: #65150E;
+  background-color: #E17D27;
+  opacity: 0.58;
+  color: black;
 }
 
 .stat-box .counter {
@@ -357,7 +360,7 @@
         .services h2 {
             text-align: center;
             font-size: 32px;
-            color: #A31F14;
+            color: #E17D27;
             font-weight: 700;
             margin-bottom: 40px;
         }
