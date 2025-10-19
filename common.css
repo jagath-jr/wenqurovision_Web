@@ -237,7 +237,7 @@ body {
         /* General Footer Styling */
 .site-footer {
      /* Fallback color */
-    background-image: linear-gradient(rgb(255,251,250), rgb(255,251,250));
+    background-image: linear-gradient(180deg, #1B7458C7, #EBB789);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -379,7 +379,7 @@ body {
   font-size: 0.9rem;
 }
 .footer-bottom-unik {
-    background-color: rgba(255, 251, 250, 1);
+    background-color: #EBB789;
     padding: 20px 5% 30px;
     border-top: 1px solid #363B46;
     text-align: center;
