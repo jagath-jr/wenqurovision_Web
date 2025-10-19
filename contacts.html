@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us-ALUCAD</title>
+  <link rel="icon" type="image/x-icon" href="titleImg.png">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="contacts.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+</head>
+<body>
+  <div id="headerWrapper">
+    <header class="top-bar" id="topBar">
+      <div class="contact">
+  <a href="tel:+97125598441">
+    <img src="images/call.png" alt="Call Icon" class="icon" /> +971 2 559 8441
+  </a>
+</div>
+<div class="email">
+  <a href="mailto:Info@maxmilleruae.com">✉ Info@maxmilleruae.com</a>
+</div>
+    </header>
+
+    <nav class="navbar" id="navbar">
+       <div class="logo">
+        <img src="logo_with_name-removebg-preview.png" alt="Max Miller" />
+      </div>
+      <div class="menu-icon" onclick="toggleMenu()">☰</div>
+      <div class="nav-right" id="navMenu">
+        <ul class="nav-links">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./about.html">About us</a></li>
+          <li><a href="./services.html">Our Services</a></li>
+          <li><a href="./gallery.html">Gallery</a></li>
+        </ul>
+        <button onclick="location.href='./contacts.html'" class="btn-outline">Contact us</button>
+      </div>
+    </nav>
+  </div>
+
+  <section class="services-hero">
+        <div class="banner" data-aos="fade-down" data-aos-delay="200">
+            <h2>Our Contact Address</h2>
+        </div>
+    </section>
+  <header>
+
+    <div class="contact-info">
+     <div class="card">
+    <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Phone Icon" />
+    <p><strong>Call Us</strong><br /><a href="tel:+97125598441">+971 2 559 8441</a></p>
+</div>
+      <div class="card">
+    <img src="https://img.icons8.com/ios-filled/50/000000/new-post.png" alt="Email Icon" />
+    <p><strong>Email Us</strong><br /><a href="mailto:Info@maxmilleruae.com">Info@maxmilleruae.com</a></p>
+</div>
+      <div class="card">
+        <img src="https://img.icons8.com/ios-filled/50/000000/address.png" alt="Address Icon" />
+        <p><strong>Our Address</strong><br />P.O.Box : 32551<br>
+Mussafah ,Abu Dhabi UAE</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- <main>
+    <section class="form-section">
+      <h2>Let's Connect</h2>
+      <form>
+        <div class="input-group">
+          <input type="text" placeholder="Name" required />
+          <input type="tel" placeholder="Phone No" required />
+        </div>
+        <div class="input-group">
+          <input type="email" placeholder="Email" required />
+          <select required>
+            <option value="">Choose services</option>
+            <option>Web Development</option>
+            <option>Consulting</option>
+            <option>Support</option>
+          </select>
+        </div>
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main> -->
+  <main>
+  <section class="form-section">
+    <div class="form-container">
+      <div class="form-left">
+        <!-- Embed a map or use an image -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6104.929901733036!2d54.49379741612298!3d24.35048919320334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e40eadfd2dca1%3A0x31ffc1f6b08eeeac!2sMusaffah%20-%20M37%20-%20Abu%20Dhabi%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sin!4v1753293442623!5m2!1sen!2sin "
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <div class="form-right">
+       
+        <form id="contactForm">
+          <h2 class="form-heading">Contact Form</h2>
+          <div class="input-group">
+            <input type="text" id="name" placeholder="Name" />
+            <input type="tel" id="phone" placeholder="Phone No" />
+          </div>
+          <div class="input-group">
+            <input type="email" id="email" placeholder="Email" />
+            <select id="services">
+              <option value="" disabled selected>Choose Service</option>
+                      <option>Aluminium and Glass Works</option>
+                      <option>Construction & Demolition</option>
+                      <option>Building Maintenance</option>
+                      <option>Swimming pool Maintenance</option>
+                      <option>Civil Works</option>
+                      <option>Interior & fit-Out Works</option>
+                     <option>MEP Works</option> <option>Steel Fabrication</option>
+            </select>
+          </div>
+          <textarea id="message" placeholder="Your Message" rows="5"></textarea>
+          <button class="submit-btn" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+    <div id="whatsapp">
+    <a href="https://api.whatsapp.com/send?phone=+971552469258&text=Hello! I would like to know more about your products." target="_blank" class="wtsapp"><i class="fab fa-whatsapp"></i></a>
+  </div>
+
+
+<!---===========footer =========-->
+ <footer class="site-footer">
+
+        <div class="container">
+            <div class="footer-content">
+
+                <!-- Column 1: About & Social -->
+                <div class="footer-column footer-about">
+                    <div class="footer-logo"><h2>Max Miller General Contracting LLC</h2></div>
+                    <p class="footer-tagline">Delivering excellence in construction since 2004. We specialize in innovative, sustainable, and high-quality building solutions for public and private sectors, with a proven record of timely project completion and trusted partnerships across the region.</p>
+                    <div class="social-icons">
+<a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+<a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+<a href="https://www.linkedin.com/in/yourprofilename" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+</div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-column footer-links">
+                    <h4>QUICK LINKS</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="/services.html">Our Services</a></li>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contacts.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact Us -->
+                <div class="footer-column footer-contact">
+                    <h4>CONTACT US</h4>
+                    <ul>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>
+                                Mussafah, Abu Dhabi UAE <br>
+                                P.O.Box : 32551 
+
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span><a href="tel:+97125598441">+971 2 559 8441</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span><a href="mailto:Info@maxmilleruae.com">Info@maxmilleruae.com</a></span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+         <div class="footer-bottom">&copy; 2025 Max Miller. All Rights Reserved.</div>
+    </div>
+    </footer>
+
+
+   <script src="main.js"></script>
+     <script src="common.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
+</script>
+<!-- <script>
+  const getBearerToken = async ()=>{
+      var requestOptions = {
+          method: 'GET',
+          redirect: 'follow'
+      };
+      await fetch("https://corteza.duvitra.com/connector/api/token", requestOptions)
+      .then(response => response.text())
+      .then(result =>{
+          result = JSON.parse(result);
+          localStorage.setItem("token", result.access_token)
+      })
+      .catch(error => console.log('error', error));
+  }
+  getBearerToken();
+  document.getElementById("contactForm").addEventListener("submit", async (e)=> {
+    e.preventDefault(); // Prevent actual submission
+
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const services = document.getElementById("services").value;
+    const message = document.getElementById("message").value.trim();
+    console.log(name, phone)
+
+    const phoneRegex = /^[0-9]{10}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (name === "") {
+      alert("Please enter your name");
+      return;
+    }
+
+    if (!phoneRegex.test(phone)) {
+      alert("Please enter a valid 10-digit phone number");
+      return;
+    }
+
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address");
+      return;
+    }
+
+    if (services === "") {
+      alert("Please select a service");
+      return;
+    }
+
+    if (message === "") {
+      alert("Please enter your message");
+      return;
+    }
+
+    // All validations passed
+    const body = {
+      enquiry: {
+        "values":[
+          {"name":"name","value":name},
+          {"name":"PhoneNumber","value":phone},
+          {"name":"email","value":email},
+          {"name":"service","value":services},
+          {"name":"message","value":message},
+          {"name":"markAsRead","value":"0"}
+        ],
+        "records":[],
+        "meta":{}
+      },
+      moduleID: "453196980423032833",
+      namespaceID: "453196980392361985"
+    }
+    const response = await fetch("https://corteza.duvitra.com/connector/api/enquiry", {
+        method: "POST",
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+    });
+    
+    const data = await response.json();
+    alert("Form submitted successfully!");
+    // Optionally: this.submit(); if you want to proceed to actual form submission
+  });
+</script> -->
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script src="email.js"></script>
+</body>
+</html>
