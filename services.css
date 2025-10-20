@@ -24,20 +24,26 @@ body {
     align-items: center;
 }
 
-.banner {
-   border-radius: 20.28px;
-background: rgba(163, 31, 20, 0.74);
-    width: 100%;
-    padding: 25px 0;
-    text-align: center;
-}
 
 .banner h2 {
     color: white;
     font-family: 'Poppins', sans-serif;
     font-size: 3rem;
     font-weight: 600;
-    margin: 0;
+}
+.banner .caption {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.banner .sub-caption {
+    font-size: 1.2rem;
+    color: #FFFFFF;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .content-section {
@@ -72,18 +78,19 @@ background: rgba(163, 31, 20, 0.74);
     width: 100%;
     height: 100%;
     opacity: 0.79;
-background: var(--Color, #A31F14);
+background: var(--Color, #ffffff);
+background-image: linear-gradient(180deg, #1B7458C7, #E17D27BA);
 }
 
 /* Section-specific backgrounds */
-.section-1 { background-image: url('Our service images/BG_Aluminium and Glass.webp'); }
-.section-2 { background-image: url('Our service images/BG_Construction & Demolition.webp'); }
-.section-3 { background-image: url('Our service images/BG_Building Maintenance.webp'); }
-.section-4 { background-image: url('Our service images/BG_Swimming pool Maintenance.webp'); }
-.section-5 { background-image: url('Our service images/BG_Civil Works.webp'); }
-.section-6 { background-image: url('Our service images/BG_Interior & fit-Out Works.webp'); }
-.section-7 { background-image: url('Our service images/BG_MEP Works.webp'); }
-.section-8 { background-image: url('Our service images/BG_Steel Fabrication.webp'); }
+.section-1 { background-image: url('imagepathhere'); }
+.section-2 { background-image: url('imagepathhere'); }
+.section-3 { background-image: url('imagepathhere'); }
+.section-4 { background-image: url('imagepathhere'); }
+.section-5 { background-image: url('imagepathhere'); }
+.section-6 { background-image: url('imagepathhere'); }
+.section-7 { background-image: url('imagepathhere'); }
+.section-8 { background-image: url('imagepathhere'); }
 
 
 .our-product-container {

@@ -1,3 +1,48 @@
+// Wait for the DOM to be fully loaded before running the script
+document.addEventListener("DOMContentLoaded", function () {
+  // --- 1. LOAD THE HEADER ---
+  fetch("header.html")
+    .then((response) => response.text())
+    .then((data) => {
+      // Inject the fetched HTML into the placeholder
+      document.getElementById("header-placeholder").innerHTML = data;
+
+      // --- 2. ADD HEADER-RELATED FUNCTIONALITY HERE ---
+      // This ensures the functions are available AFTER the header is loaded
+
+      // Mobile menu toggle functionality
+      window.toggleMenu = function () {
+        const navMenu = document.getElementById("navMenu");
+        if (navMenu) {
+          navMenu.classList.toggle("show");
+        }
+      };
+
+      // Header scroll-hide functionality
+      const headerWrapper = document.getElementById("headerWrapper");
+      if (headerWrapper) {
+        let lastScrollTop = 0;
+        window.addEventListener("scroll", function () {
+          let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          if (scrollTop > lastScrollTop) {
+            // Downscroll
+            headerWrapper.classList.add("hide-header");
+          } else {
+            // Upscroll
+            headerWrapper.classList.remove("hide-header");
+          }
+          lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+        });
+      }
+    })
+    .catch((error) => console.error("Error loading the header:", error));
+});
+
+
+
+
+
+
 // Wait for DOM and GSAP to be ready
 document.addEventListener("DOMContentLoaded", () => {
     // Early return if GSAP isn't available

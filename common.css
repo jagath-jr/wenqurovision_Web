@@ -241,7 +241,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    color: #000000;
+    color: #ffffff;
     padding: 80px 0 0 0;
     position: relative;
     overflow: hidden;
@@ -313,17 +313,17 @@ body {
             justify-content: center;
             width: 40px;
             height: 40px;
-            border: 1.5px solid #000000;
+            border: 1.5px solid #ffffff;
             border-radius: 50%;
-            color: #0c0c0c;
+            color: #ffffff;
             font-size: 1rem;
             text-decoration: none;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .social-icons a:hover {
-            background-color: #000000;
-            color: #ffffff;
+            background-color: #ffffff;
+            color: #000000;
         }
 
         /* Columns 2 & 3: Links & Contact */
@@ -333,7 +333,7 @@ body {
             margin-bottom: 25px;
             letter-spacing: 1px;
             text-transform: uppercase;
-            color: #000000;
+            color: #ffffff;
         }
 
         .footer-links ul,
@@ -350,7 +350,7 @@ body {
 
         .footer-links a,
         .footer-contact a {
-            color: #070707;
+            color: #ffffff;
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -371,7 +371,7 @@ body {
             font-size: 18px;
             flex-shrink: 0;
             margin-top: 5px;
-            color: #050505;
+            color: #ffffff;
         }
         .copyright {
   color: #666;
