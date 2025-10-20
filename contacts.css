@@ -19,7 +19,7 @@ body {
 header {
   text-align: center;
   padding: 2rem 1rem;
-  background-color: #A31F14;
+  background-color: #ffffff;
       
 }
 
@@ -37,14 +37,16 @@ header h1 {
 
 .contact-info .card {
   background-color: #ffffff;
-  color: #000000;
+  opacity: 0.58;
+background: #E17D27;
+  color: #fcfcfc;
   padding: 1rem;
   border-radius: 12px;
   width: 30%;
   text-align: center;
 }.contact-info .card:hover{
   transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(234, 228, 228, 0.628); background-color: #f76c60;
+  box-shadow: 0 4px 8px rgba(234, 228, 228, 0.628); background-color: #E17D27;
   color: #fcfcfc;
 }
 .contact-info .card img {
@@ -71,7 +73,7 @@ header h1 {
 }
 
 .form-section::before {
-background: rgba(163, 31, 20, 0.74);
+background: rgba(255, 255, 255, 0.74);
 }
 
 .form-section::after {
@@ -149,7 +151,7 @@ textarea {
 }
 
 .subscribe-form button {
-  background-color: #A31F14;
+  background-color: #ffffff;
   padding: 0.55rem 1.2rem;
   border: none;
   border-radius: 6px;
@@ -225,13 +227,13 @@ textarea {
 
 .form-heading {
   text-align: center;
-  color: #A31F14;
+  color: rgba(27, 116, 88, 0.89);
   font-size: 1.75rem;
   margin-bottom: 1rem;
 }
 
 .form-right form {
-  background: #fff;
+  background: #f0f0f0;
   color: #000;
   border-radius: 20px;
   padding: 2rem;
@@ -259,7 +261,8 @@ textarea {
 }
 
 .submit-btn {
-  background-color: #A31F14;
+  background-color: #ffffff;
+  background-image: linear-gradient(180deg, #1B7458C7, #E17D27BA);
   color: white;
   padding: 0.75rem 2rem;
   border: none;
@@ -269,7 +272,7 @@ textarea {
   margin-top: 1rem;
 }
 .submit-btn:hover{
-  background-color:rgb(197, 4, 4);
+  background-color:rgb(223, 151, 17);
 }
 /* Responsive: stack on small screens */
 @media (max-width: 768px) {
@@ -291,7 +294,7 @@ textarea {
   }
 }
 .services-hero {
-    background-image: url('Our service images/Our product Img/Steel Fabrication.webp');
+   
     background-size: cover;
     background-position: center;
     height: 80vh;
@@ -299,16 +302,10 @@ textarea {
     justify-content: center;
     align-items: center;
 }
-.banner {
-   border-radius: 20.28px;
-background: rgba(163, 31, 20, 0.74);
-    width: 100%;
-    padding: 25px 0;
-    text-align: center;
-}
+
 
 .banner h2 {
-    color: white;
+    color: rgba(27, 116, 88, 0.89);
     font-family: 'Poppins', sans-serif;
     font-size: 3rem;
     font-weight: 600;
