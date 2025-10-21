@@ -183,52 +183,28 @@ document.addEventListener("DOMContentLoaded", function () {
    */
   const servicesData = [
     {
-      img: 'Our service images/Our product Img/Aluminium.webp',
-      title: 'Aluminium & GlassWorks',
-      desc: 'Custom-designed aluminum and glass solutions for façades, partitions, and windows with modern aesthetics and lasting durability...',
+      img: 'Home-img/HVAC Workshome.webp',
+      title: 'HVAC Works',
+      desc: 'Installation, maintenance, commissioning of all types of air-conditioning systems including FCU, AHU, FAHU, VAV, CAV, CCU, and DX units. Ducting, insulation, chilled water systems & air balancing services.',
       link: 'services.html#aluminium-and-glass'
     },
     {
-      img: 'Our service images/Our product Img/Construction & Demolition.webp',
-      title: 'Construction & Demolition',
-      desc: 'Safe and efficient construction and demolition services for residential, commercial, and industrial projects with strict adherence to quality...',
+      img: 'Our service images/Electrical Works.webp',
+      title: 'Electrical Works',
+      desc: 'Installation, testing, and maintenance of electrical systems including control panels, SMDB, MCB, cable pulling & dressing, tray works, light fittings, and all types of device installations across UAE.',
       link: 'services.html#doors-and-windows'
     },
     {
-      img: 'Our service images/Our product Img/Building Maintenance.webp',
-      title: 'Building Maintenance',
-      desc: 'Comprehensive maintenance solutions for buildings, ensuring functionality, safety, and extended structural life through regular inspections...',
+      img: 'Our service images/Plumbing Works.webp',
+      title: 'Plumbing Works',
+      desc: 'Installation and maintenance of all plumbing and drainage systems including booster, transfer, submersible, circulation, and irrigation pumps. Complete piping works in PVC, UPVC, PPR, and HDPE',
       link: 'services.html#cladding-solution'
     },
     {
-      img: 'Our service images/Our product Img/Swimming pool Maintenance.webp',
-      title: 'Swimming Pool Maintenance',
-      desc: 'Professional cleaning, treatment, and up keep of swimming pools to maintain hygiene, water quality, and equipment efficiency for year-round use...',
-      link: 'services.html#frameless-structure'
-    },
-    {
-      img: 'Our service images/Our product Img/Civil Works.webp',
+      img: 'Our service images/Civil.webp',
       title: 'Civil Works',
-      desc: 'We handle all types of civil works, including foundation construction, earthworks, and infrastructure development...',
-      link: 'services.html#handrails-and-balustrades'
-    },
-    {
-      img: 'Our service images/Our product Img/Interior & fit-Out Works.webp',
-      title: 'Interior & fit-Out Works',
-      desc: 'Transform your spaces with our custom interior and fit-out services. We design and execute tailored solutions for offices...',
-      link: 'services.html#architectural-features'
-    },
-    {
-      img: 'Our service images/Our product Img/MEP Works.webp',
-      title: 'MEP Works',
-      desc: 'Our Mechanical, Electrical, and Plumbing (MEP) services are designed to ensure seamless building operations...',
-      link: 'services.html#architectural-features'
-    },
-    {
-      img: 'Our service images/Our product Img/Steel Fabrication.webp',
-      title: 'Steel Fabrication',
-      desc: 'Our Steel Fabrication services are designed to meet the highest standards of quality and precision...',
-      link: 'services.html#architectural-features'
+      desc: 'Comprehensive construction and maintenance services including wall & floor painting, tile installation, masonry work, and all types of building repair and renovation activities.',
+      link: 'services.html#civil-works'
     }
 
   ];
