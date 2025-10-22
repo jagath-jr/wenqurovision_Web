@@ -448,6 +448,7 @@ body {
             .footer-about .footer-tagline {
                 font-size: 14px;
                 line-height: 1.5;
+                margin: 0px 4rem 24px 4rem;
             }
 
             .social-icons {
