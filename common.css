@@ -302,7 +302,13 @@ body {
             margin: 0px 73px 24px 0;
             text-align: justify;
         }
-
+.footer-title {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0px 73px 24px 15px;
+            text-align: justify;
+            color: #1B7458C7;
+        }
         .social-icons {
             display: flex;
             gap: 12px;
@@ -450,6 +456,13 @@ body {
                 line-height: 1.5;
                 margin: 0px 4rem 24px 4rem;
             }
+            .footer-title {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0px 73px 24px 73px;
+            text-align: justify;
+            color: #1B7458C7;
+        }
 
             .social-icons {
                 justify-content: center;
