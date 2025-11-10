@@ -17,6 +17,8 @@ body {
     padding: 20px;
 }
 
+
+
 /* About Section Styling */
 .about-section {
     padding: 60px 0;
@@ -45,6 +47,7 @@ body {
 .section-paragraph {
     font-size: 1rem; /* 16px */
     margin-bottom: 20px;
+    text-align: justify;
 }
 
 /* Right Column: Image */
@@ -95,7 +98,7 @@ body {
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background-color: #C04745;
+    background-color: #E17D27;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -165,19 +168,27 @@ body {
     align-items: center;
 }
 
-.banner {
-    border-radius: 20.28px;
-background: rgba(163, 31, 20, 0.74);
-    width: 100%;
-    padding: 25px 20px;
-    text-align: center;
-}
+
 
 .banner h2 {
     color: white;
     font-family: 'Poppins', sans-serif;
     font-size: 3rem;
     font-weight: 600;
+}
+.banner .caption {
+    font-size: 3rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.banner .sub-caption {
+    font-size: 1.2rem;
+    color: #FFFFFF;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 /* About Description Section */
@@ -203,46 +214,6 @@ background: rgba(163, 31, 20, 0.74);
     background-color: #f4f4f4;
 }
 
-.stat-box {
-    flex: 1;
-    padding: 25px;
-    border-radius: 12px;
-    text-align: left;
-    color: #ffffff;
-    background: #A31F14;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.stat-box:hover {
-    background: rgba(163, 31, 20, 0.74);
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-}
-
-.stat-box .counter {
-    font-size: 2.8rem;
-    font-weight: 700;
-}
-
-.plus-sign {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-left: 2px;
-}
-
-.stat-box h4 {
-    font-size: 1.1rem;
-    margin: 10px 0 5px;
-    font-weight: 600;
-}
-
-.stat-box p {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    opacity: 0.9;
-    text-align: justify;
-}
 
 /* What We Offer Section */
 .offer-section {
@@ -253,7 +224,7 @@ background: rgba(163, 31, 20, 0.74);
 
 .offer-section h2 {
     font-size: 2.2rem;
-    color: #A0160A;
+    color: rgba(27, 116, 88, 0.89);
     margin-bottom: 15px;
 }
 
@@ -271,7 +242,8 @@ background: rgba(163, 31, 20, 0.74);
 }
 
 .offer-card {
-    background: #A0160A;
+    background: #ffffff;
+    background-image: linear-gradient(180deg, #1B7458C7, #E17D27BA);
     color: white;
     flex: 1 1 250px;
     max-width: 280px;
@@ -289,7 +261,7 @@ background: rgba(163, 31, 20, 0.74);
 
 .offer-card-icon {
     background: white;
-    color: #A0160A;
+    color: rgba(27, 116, 88, 0.89);
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -376,7 +348,7 @@ background: rgba(163, 31, 20, 0.74);
     }
 
     .offer-cards {
-        flex-direction: column;
+        
         align-items: center;
     }
 

@@ -12,84 +12,40 @@
 </head>
 
 <body>
-  <div id="headerWrapper">
-    <div class="top-border"></div>
-    <header class="top-bar" id="topBar">
-      
-      <div class="contact">
-  <a href="tel:+97125598441">
-    <img src="images/call.png" alt="Call Icon" class="icon" /> 056 423 4800
-  </a>
-</div>
-<div class="email">
-  <a href="mailto:Info@maxmilleruae.com">✉ info@wenqurovision.ae</a>
-</div>
-    </header>
-
-    <nav class="navbar" id="navbar">
-      <div class="logo">
-        <img src="logo_with_name-removebg-preview.png" alt="Max Miller" />
-      </div>
-      <div class="menu-icon" onclick="toggleMenu()">☰</div>
-      <div class="nav-right" id="navMenu">
-        <ul class="nav-links">
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="./about.html">About us</a></li>
-          <li><a href="./services.html">Our Services</a></li>
-          <li><a href="./gallery.html">Gallery</a></li>
-        </ul>
-        <button onclick="location.href='./contacts.html'" class="btn-outline">Contact us</button>
-      </div>
-    </nav>
-  </div>
-
+<div id="header-placeholder"></div>
 <section class="hero-slider">
     
     <div class="slide flip-in" data-anim="flip-in">
-      <img src="Our service images\BG_Civil Works.webp" alt="Custom-built aluminium systems" />
+      <img src="Home-img/Complete MEP Solutions.webp" alt="Custom-built aluminium systems" />
       <div class="caption-container">
         <h1 class="caption">Complete MEP Solutions</h1>
-        <p class="sub-caption">CWe provide complete MEP and construction services across the UAE, delivering excellence through quality, safety, and reliability.</p>
+        <p class="sub-caption">We provide complete MEP and construction services across the UAE, delivering excellence through quality, safety, and reliability.</p>
       </div>
     </div>
     
     <div class="slide slide-right" data-anim="slide-right">
-      <img src="Our service images\BG_Building Maintenance.webp" />
+      <img src="Home-img/HVAC Workshome.webp" />
       <div class="caption-container">
-        <h1 class="caption">Building Maintenance</h1>
+        <h1 class="caption">HVAC Works</h1>
         <p class="sub-caption">Comprehensive solutions for the upkeep and enhancement of your building's infrastructure.</p>
       </div>
     </div>
     <div class="slide zoom-in" data-anim="zoom-in">
-      <img src="Our service images\BG_Swimming Pool Maintenance.webp" alt="Glass and aluminium design" />
+      <img src="Home-img/SPlumbing Works.webp" alt="Glass and aluminium design" />
       <div class="caption-container">
-        <h1 class="caption">Swimming Pool Maintenance</h1>
+        <h1 class="caption">Plumbing Works</h1>
         <p class="sub-caption">Expert cleaning and maintenance services to keep your pool in pristine condition.</p>
       </div>
     </div>
     
     <div class="slide float-up" data-anim="float-up">
-      <img src="Our service images\BG_Interior & Fit-Out Works.webp" alt="Aluminium building facades" />
+      <img src="Our service images/Civil.webp" alt="Aluminium building facades" />
       <div class="caption-container">
-        <h1 class="caption">Interior & Fit-Out Works</h1>
+        <h1 class="caption">Civil Works</h1>
         <p class="sub-caption">Transforming interiors with bespoke fit-out solutions, tailored to enhance functionality and aesthetics.</p>
       </div>
     </div>
-    <div class="slide slide-left" data-anim="slide-left">
-      <img src="Our service images\BG_Construction & Demolition.webp" alt="Sleek aluminium frames" />
-      <div class="caption-container">
-        <h1 class="caption">Construction & Demolition</h1>
-        <p class="sub-caption">Expert solutions for safe, efficient construction and demolition tailored to your project needs.</p>
-      </div>
-    </div>
-    <div class="slide active fade-in" data-anim="fade-in">
-      <img src="Our service images\BG_Aluminium and Glass.webp" alt="Elegant architectural structures" />
-      <div class="caption-container">
-        <h1 class="caption">Aluminium & Glass Works</h1>
-        <p class="sub-caption">
-From concept to completion, our dedicated team combines innovative solutions, sustainable practices, and timely execution to meet the unique needs of every client, making us a trusted partner in the construction industry.</p>
-      </div>
-    </div>
+    
     
     <!-- Navigation buttons -->
     <div class="slider-nav">
@@ -102,8 +58,8 @@ From concept to completion, our dedicated team combines innovative solutions, su
       <span class="dot" data-index="1"></span>
       <span class="dot" data-index="2"></span>
       <span class="dot" data-index="3"></span>
-      <span class="dot" data-index="4"></span>
-      <span class="dot" data-index="5"></span>
+    
+      
     </div>
 </section>
   <!-- ----------------------------------------->
@@ -113,7 +69,7 @@ From concept to completion, our dedicated team combines innovative solutions, su
 
   
 
-  <section class="stats">
+  <!--<section class="stats">
     <div class="stat-box">
       <div><span class="counter" data-target="20">0</span><span class="plus-sign">+</span></div>
       <h4>Years of Experience</h4>
@@ -129,7 +85,9 @@ From concept to completion, our dedicated team combines innovative solutions, su
       <h4>Skilled Professionals</h4>
       <p>A team of experts dedicated to providing innovative and sustainable construction solutions.</p>
     </div>
-  </section>       <section id="why-choose-us">
+  </section>   -->   
+  
+  <section id="why-choose-us">
           <div class="container">
               <h2 class="section-title">Why Choose us ?</h2>
           </div>
@@ -221,40 +179,13 @@ From concept to completion, our dedicated team combines innovative solutions, su
  <section class="services">
     <div class="container">
       <h2>Our Services</h2>
+      
       <div class="carousel-wrapper">
+         <button class="carousel-btn prev" aria-label="Previous service">&#10094;</button>
+    <button class="carousel-btn next" aria-label="Next service">&#10095;</button>
         <div class="carousel-track">
-          <div class="service-card">
-            <div class="image" style="background-image: url('Our service images/Our product Img/Aluminium and Glass.png');"></div>
-            <div class="content">
-              <h4>HVAC Works</h4>
-              <p>Installation, maintenance, commissioning of all types of air-conditioning systems including FCU, AHU, FAHU, VAV, CAV, CCU, and DX units. Ducting, insulation, chilled water systems & air balancing services.</p>
-              <a href="services.html#hvac-works" class="btn-small">Read More</a>
-            </div>
-          </div>
-          <div class="service-card">
-            <div class="image" style="background-image: url('Our service images/Our product Img/Doors and windows Img.png');"></div>
-            <div class="content">
-              <h4>Electrical Works</h4>
-              <p>Installation, testing, and maintenance of electrical systems including control panels, SMDB, MCB, cable pulling & dressing, tray works, light fittings, and all types of device installations across UAE.</p>
-              <a href="services.html#electrical-works" class="btn-small">Read More</a>
-            </div>
-          </div>
-          <div class="service-card">
-            <div class="image" style="background-image: url('Our service images/Our product Img/Cladding Solution Img.png');"></div>
-            <div class="content">
-              <h4>Plumbing Works</h4>
-              <p>Installation and maintenance of all plumbing and drainage systems including booster, transfer, submersible, circulation, and irrigation pumps. Complete piping works in PVC, UPVC, PPR, and HDPE</p>
-              <a href="services.html#plumbing-works" class="btn-small">Read More</a>
-            </div>
-          </div>
-          <div class="service-card">
-            <div class="image" style="background-image: url('Our service images/Our product Img/Frameless structure Img.png');"></div>
-            <div class="content">
-              <h4>Civil Works</h4>
-              <p>Comprehensive construction and maintenance services including wall & floor painting, tile installation, masonry work, and all types of building repair and renovation activities</p>
-              <a href="services.html#civil-works" class="btn-small">Read More</a>
-            </div>
-          </div>
+          
+          
         </div>
         <div class="carousel-dots"></div>
       </div>
@@ -279,14 +210,11 @@ From concept to completion, our dedicated team combines innovative solutions, su
 
     <select id="services" required>
         <option value="" disabled selected>Choose Service</option>
-        <option>Aluminium and Glass Works</option>
-        <option>Construction & Demolition</option>
-        <option>Building Maintenance</option>
-        <option>Swimming pool Maintenance</option>
-        <option>Civil Works</option>
-        <option>Interior & fit-Out Works</option>
-        <option>MEP Works</option> 
-        <option>Steel Fabrication</option>
+                      <option>HVAC Works</option>
+                      <option>Electrical Works</option>
+                      <option>Plumbing Works</option>
+                      <option>Civil Works</option>
+                      
     </select>
 
     <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
@@ -299,82 +227,10 @@ From concept to completion, our dedicated team combines innovative solutions, su
   </div>
    
 
-  <div id="whatsapp">
-    <a href="https://api.whatsapp.com/send?phone=+971552469258&text=Hello! I would like to know more about your products." target="_blank" class="wtsapp"><i class="fab fa-whatsapp"></i></a>
-  </div>
+ 
 
-<!---===========footer =========-->
-<footer class="site-footer">
-     
-
-      <div class="container">
-          <div class="footer-content">
-
-              <div class="footer-column footer-about">
-                  <div class="footer-logo"></div>
-                  <p class="footer-tagline">WENQURO VISION<br> General Contracting and Maintenance LLC- S.P.C<br>Providing reliable MEP and construction solutions across the UAE with a commitment to quality, safety, and on-time project delivery.</p>
-                  <div class="social-icons">
-                    <a href="https://www.facebook.com/profile.php?id=61579347194186" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/duvitra_innovations?igsh=ZmVzZ3EyZ3ozNzdx" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/duvitra-innovations-882442361?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                  </div>
-              </div>
-
-              <div class="footer-column footer-links">
-                  <h4>QUICK LINKS</h4>
-                  <ul>
-                      <li><a href="/index.html">Home</a></li>
-                      <li><a href="/services/services.html">Services</a></li>
-                      <li><a href="/about_us.html">About us</a></li>
-                      <li><a href="/contact_us.html">Contact</a></li>
-                  </ul>
-              </div>
-
-              <div class="footer-column footer-contact">
-                  <h4>Get in touch</h4>
-                          <i class="fas fa-map-marker-alt"></i>
-                          <span>
-                             Office #1805 18th floor Al Khazna Tower Najda St ,Abu dhabi
-                          </span>
-                      </li>
-                      
-                      <li>
-                          <i class="fas fa-envelope"></i>
-                          <span><a href="mailto:admin@duvitra.com">info@wenqurovision.ae</a></span>
-                      </li>
-                  </ul>
-              </div>
-              <div class="footer-column footer-contact">
-                  <h4>CONTACT US</h4>
-                  <ul>
-                      
-                      <li>
-                          <i class="fas fa-phone"></i>
-                          <span><a href="tel:+917510 181917">056 423 4800</a></span>
-                      </li>
-                       <li>
-                          <i class="fas fa-phone"></i>
-                          <span><a href="tel:+917510 181917">056 600 0997</a></span>
-                      </li>
-                       <li>
-                          <i class="fas fa-phone"></i>
-                          <span><a href="tel:+917510 181917">050 112 0507</a></span>
-                      </li>
-                      
-                  </ul>
-              </div>
-
-          </div>
-         
-      </div>
-       <div class="footer-bottom-unik">
-           
-            <div class="footer-copyright-unik">
-                <p>Wenquro Vision © 2025</p>
-            </div>
-        </div>
-  </footer>
-
+<!-- Footer will load here -->
+<div id="common-footer"></div>
   <script src="main.js"></script>
   <script src="common.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

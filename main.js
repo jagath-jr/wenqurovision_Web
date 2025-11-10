@@ -181,200 +181,170 @@ document.addEventListener("DOMContentLoaded", function () {
   /**
    * Services Carousel (Improved Version)
    */
-  const servicesData = [
-    {
-      img: 'Our service images/Our product Img/Aluminium.webp',
-      title: 'Aluminium & GlassWorks',
-      desc: 'Custom-designed aluminum and glass solutions for façades, partitions, and windows with modern aesthetics and lasting durability...',
-      link: 'services.html#aluminium-and-glass'
-    },
-    {
-      img: 'Our service images/Our product Img/Construction & Demolition.webp',
-      title: 'Construction & Demolition',
-      desc: 'Safe and efficient construction and demolition services for residential, commercial, and industrial projects with strict adherence to quality...',
-      link: 'services.html#doors-and-windows'
-    },
-    {
-      img: 'Our service images/Our product Img/Building Maintenance.webp',
-      title: 'Building Maintenance',
-      desc: 'Comprehensive maintenance solutions for buildings, ensuring functionality, safety, and extended structural life through regular inspections...',
-      link: 'services.html#cladding-solution'
-    },
-    {
-      img: 'Our service images/Our product Img/Swimming pool Maintenance.webp',
-      title: 'Swimming Pool Maintenance',
-      desc: 'Professional cleaning, treatment, and up keep of swimming pools to maintain hygiene, water quality, and equipment efficiency for year-round use...',
-      link: 'services.html#frameless-structure'
-    },
-    {
-      img: 'Our service images/Our product Img/Civil Works.webp',
-      title: 'Civil Works',
-      desc: 'We handle all types of civil works, including foundation construction, earthworks, and infrastructure development...',
-      link: 'services.html#handrails-and-balustrades'
-    },
-    {
-      img: 'Our service images/Our product Img/Interior & fit-Out Works.webp',
-      title: 'Interior & fit-Out Works',
-      desc: 'Transform your spaces with our custom interior and fit-out services. We design and execute tailored solutions for offices...',
-      link: 'services.html#architectural-features'
-    },
-    {
-      img: 'Our service images/Our product Img/MEP Works.webp',
-      title: 'MEP Works',
-      desc: 'Our Mechanical, Electrical, and Plumbing (MEP) services are designed to ensure seamless building operations...',
-      link: 'services.html#architectural-features'
-    },
-    {
-      img: 'Our service images/Our product Img/Steel Fabrication.webp',
-      title: 'Steel Fabrication',
-      desc: 'Our Steel Fabrication services are designed to meet the highest standards of quality and precision...',
-      link: 'services.html#architectural-features'
-    }
-
-  ];
-
+  
+  // Find all the carousel elements
   const carouselTrack = document.querySelector('.carousel-track');
   const dotsContainer = document.querySelector('.carousel-dots');
   const nextBtn = document.querySelector('.carousel-btn.next');
   const prevBtn = document.querySelector('.carousel-btn.prev');
 
+  // Check if we are on a page with the services carousel
   if (carouselTrack && dotsContainer) {
-    // Populate service cards
-    servicesData.forEach(service => {
-      const card = document.createElement('div');
-      card.className = 'service-card';
-      card.innerHTML = `
-        <div class="image" style="background-image: url('${service.img}');"></div>
-        <div class="content">
-          <h4>${service.title}</h4>
-          <p>${service.desc}</p>
-          <a href="${service.link}" class="btn-small">Read More</a>
-        </div>
-      `;
-      carouselTrack.appendChild(card);
-    });
+    
+    // NEW: Function to load data and build the carousel
+    async function loadServiceCarousel() {
+      try {
+        const response = await fetch('services-data.json');
+        if (!response.ok) throw new Error('Failed to fetch services data');
+        const servicesData = await response.json();
 
-    const originalCards = Array.from(carouselTrack.children);
-    const totalOriginalCards = originalCards.length;
-    let currentIndex = 0;
-    let autoPlayInterval;
+        // Populate service cards from the fetched data
+        servicesData.forEach(service => {
+          const card = document.createElement('div');
+          card.className = 'service-card';
+          card.innerHTML = `
+            <div class="image" style="background-image: url('${service.homePageImage}');"></div>
+            <div class="content">
+              <h4>${service.title}</h4>
+              <p>${service.homePageDescription}</p>
+              <a href="services.html#${service.id}" class="btn-small">Read More</a>
+            </div>
+          `;
+          carouselTrack.appendChild(card);
+        });
 
-    // Clone cards for infinite loop
-    originalCards.forEach(card => {
-      const clone = card.cloneNode(true);
-      carouselTrack.appendChild(clone);
-    });
+        // --- All the original carousel logic starts here ---
+        // (This part is mostly unchanged, just moved inside the function)
+        const originalCards = Array.from(carouselTrack.children);
+        const totalOriginalCards = originalCards.length;
+        let currentIndex = 0;
+        let autoPlayInterval;
 
-    // Create dots
-    for (let i = 0; i < totalOriginalCards; i++) {
-      const dot = document.createElement('span');
-      dot.classList.add('dot');
-      dot.dataset.index = i;
-      dotsContainer.appendChild(dot);
-    }
-    const carouselDots = dotsContainer.querySelectorAll('.dot');
+        // Clone cards for infinite loop
+        originalCards.forEach(card => {
+          const clone = card.cloneNode(true);
+          carouselTrack.appendChild(clone);
+        });
 
-    const updateCarousel = (animate = true) => {
-      const cardWidth = carouselTrack.querySelector('.service-card').offsetWidth;
-      const cardMargin = parseInt(window.getComputedStyle(carouselTrack.querySelector('.service-card')).marginRight) + 
-                        parseInt(window.getComputedStyle(carouselTrack.querySelector('.service-card')).marginLeft);
-      const totalWidth = cardWidth + cardMargin;
+        // Create dots
+        for (let i = 0; i < totalOriginalCards; i++) {
+          const dot = document.createElement('span');
+          dot.classList.add('dot');
+          dot.dataset.index = i;
+          dotsContainer.appendChild(dot);
+        }
+        const carouselDots = dotsContainer.querySelectorAll('.dot');
 
-      carouselTrack.style.transition = animate ? 'transform 0.7s ease-in-out' : 'none';
-      carouselTrack.style.transform = `translateX(-${currentIndex * totalWidth}px)`;
+        const updateCarousel = (animate = true) => {
+          const cardWidth = carouselTrack.querySelector('.service-card').offsetWidth;
+          const cardMargin = parseInt(window.getComputedStyle(carouselTrack.querySelector('.service-card')).marginRight) + 
+                            parseInt(window.getComputedStyle(carouselTrack.querySelector('.service-card')).marginLeft);
+          const totalWidth = cardWidth + cardMargin;
 
-      // Update active dot
-      carouselDots.forEach(d => d.classList.remove('active'));
-      if (carouselDots[currentIndex % totalOriginalCards]) {
-        carouselDots[currentIndex % totalOriginalCards].classList.add('active');
-      }
-    };
+          carouselTrack.style.transition = animate ? 'transform 0.7s ease-in-out' : 'none';
+          carouselTrack.style.transform = `translateX(-${currentIndex * totalWidth}px)`;
 
-    const handleNext = () => {
-      currentIndex++;
-      updateCarousel();
+          // Update active dot
+          carouselDots.forEach(d => d.classList.remove('active'));
+          if (carouselDots[currentIndex % totalOriginalCards]) {
+            carouselDots[currentIndex % totalOriginalCards].classList.add('active');
+          }
+        };
 
-      if (currentIndex >= totalOriginalCards) {
-        setTimeout(() => {
-          carouselTrack.style.transition = 'none';
-          currentIndex = 0;
-          updateCarousel(false);
-        }, 700);
-      }
-    };
+        const handleNext = () => {
+          currentIndex++;
+          updateCarousel();
 
-    const handlePrev = () => {
-      if (currentIndex === 0) {
-        carouselTrack.style.transition = 'none';
-        currentIndex = totalOriginalCards;
+          if (currentIndex >= totalOriginalCards) {
+            setTimeout(() => {
+              carouselTrack.style.transition = 'none';
+              currentIndex = 0;
+              updateCarousel(false);
+            }, 700);
+          }
+        };
+
+        const handlePrev = () => {
+          if (currentIndex === 0) {
+            carouselTrack.style.transition = 'none';
+            currentIndex = totalOriginalCards;
+            updateCarousel(false);
+          }
+          setTimeout(() => {
+            currentIndex--;
+            updateCarousel(true);
+          }, 50); // Small delay to ensure transition applies
+        };
+
+        const startAutoplay = () => {
+          stopAutoplay(); // Clear existing interval
+          autoPlayInterval = setInterval(handleNext, 3000);
+        };
+
+        const stopAutoplay = () => {
+          clearInterval(autoPlayInterval);
+        };
+
+        // Event Listeners
+        if (nextBtn) nextBtn.addEventListener('click', () => {
+          handleNext();
+          startAutay(); // Reset autoplay timer on manual navigation
+        });
+
+        if (prevBtn) prevBtn.addEventListener('click', () => {
+          handlePrev();
+          startAutoplay(); // Reset autoplay timer
+        });
+
+        carouselTrack.addEventListener('mouseenter', stopAutoplay);
+        carouselTrack.addEventListener('mouseleave', startAutoplay);
+
+        dotsContainer.addEventListener('click', e => {
+          if (e.target.classList.contains('dot')) {
+            currentIndex = parseInt(e.target.dataset.index);
+            updateCarousel();
+            startAutoplay(); // Reset autoplay timer
+          }
+        });
+
+        // Touch events for mobile swipe
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        carouselTrack.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+          stopAutoplay();
+        }, { passive: true });
+
+        carouselTrack.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          handleSwipe();
+          startAutoplay();
+        }, { passive: true });
+
+        function handleSwipe() {
+          const threshold = 50; // Minimum swipe distance
+          if (touchEndX < touchStartX - threshold) {
+            handleNext(); // Swipe left
+          } else if (touchEndX > touchStartX + threshold) {
+            handlePrev(); // Swipe right
+          }
+        }
+
+        // Initialize
         updateCarousel(false);
-      }
-      setTimeout(() => {
-        currentIndex--;
-        updateCarousel(true);
-      }, 50); // Small delay to ensure transition applies
-    };
+        startAutoplay();
 
-    const startAutoplay = () => {
-      stopAutoplay(); // Clear existing interval
-      autoPlayInterval = setInterval(handleNext, 3000);
-    };
+        window.addEventListener('resize', () => updateCarousel(false));
 
-    const stopAutoplay = () => {
-      clearInterval(autoPlayInterval);
-    };
-
-    // Event Listeners
-    if (nextBtn) nextBtn.addEventListener('click', () => {
-      handleNext();
-      startAutoplay(); // Reset autoplay timer on manual navigation
-    });
-
-    if (prevBtn) prevBtn.addEventListener('click', () => {
-      handlePrev();
-      startAutoplay(); // Reset autoplay timer
-    });
-
-    carouselTrack.addEventListener('mouseenter', stopAutoplay);
-    carouselTrack.addEventListener('mouseleave', startAutoplay);
-
-    dotsContainer.addEventListener('click', e => {
-      if (e.target.classList.contains('dot')) {
-        currentIndex = parseInt(e.target.dataset.index);
-        updateCarousel();
-        startAutoplay(); // Reset autoplay timer
-      }
-    });
-
-    // Touch events for mobile swipe
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    carouselTrack.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-      stopAutoplay();
-    }, { passive: true });
-
-    carouselTrack.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      handleSwipe();
-      startAutoplay();
-    }, { passive: true });
-
-    function handleSwipe() {
-      const threshold = 50; // Minimum swipe distance
-      if (touchEndX < touchStartX - threshold) {
-        handleNext(); // Swipe left
-      } else if (touchEndX > touchStartX + threshold) {
-        handlePrev(); // Swipe right
+      } catch (error) {
+        console.error('Failed to load services carousel:', error);
+        carouselTrack.innerHTML = '<p style="text-align: center; color: red;">Error loading services.</p>';
       }
     }
 
-    // Initialize
-    updateCarousel(false);
-    startAutoplay();
-
-    window.addEventListener('resize', () => updateCarousel(false));
+    // Call the new function to start everything
+    loadServiceCarousel();
   }
 });
 // script.js

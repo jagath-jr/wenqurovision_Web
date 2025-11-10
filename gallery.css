@@ -5,13 +5,13 @@ body{
 }
 /* Hero Banner */
 .hero {
-  background: url('Our service images/BG_Construction & Demolition.webp') center/cover no-repeat;
+  background: url('Home-img/SPlumbing Works.webp') center/cover no-repeat;
   text-align: center;
   padding: 100px 20px;
   color: #fff;
   background-blend-mode: overlay;
  border-radius: 20.28px;
-background: rgba(163, 31, 20, 0.74);
+background: rgba(255, 255, 255, 0.74);
 }
 .hero h1 {
   font-size: 3rem;
@@ -181,7 +181,7 @@ font-size: 4rem;
   width:100vw;
 }
 .services-hero {
-    background-image: url('Our service images/BG_Construction & Demolition.webp');
+    background-image: url('Home-img/SPlumbing Works.webp');
     background-size: cover;
     background-position: center;
     height: 80vh;
@@ -189,13 +189,7 @@ font-size: 4rem;
     justify-content: center;
     align-items: center;
 }
-.banner {
-    border-radius: 20.28px;
-background: rgba(163, 31, 20, 0.74);
-    width: 100%;
-    padding: 25px 0;
-    text-align: center;
-}
+
 
 .banner h2 {
     color: white;
