@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initialize EmailJS with your Public Key
     // Find this in your EmailJS account under Account > API Keys
     emailjs.init({
-        publicKey: 'Np4wNorvqKw7hrWJj', // Your public key from email.j
+        publicKey: '1VaS0kVeLjg7B0Xzo', // Your public key from email.j
     });
 
     const careersForm = document.getElementById('careersForm');
@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // --- Your EmailJS Credentials ---
             // You will need a NEW Template ID for this careers form
-            const serviceID = 'service_zypnsti'; // Your Service ID from email.j
-            const templateID = 'TEMPLATE_ID_FOR_CAREERS'; // <<< REPLACE THIS
+            const serviceID = 'service_4ryc02q'; // Your Service ID from email.j
+            const templateID = 'template_pjnw4f6'; // <<< REPLACE THIS
 
             const submitBtn = this.querySelector('.submit-btn');
             submitBtn.textContent = 'Sending...';
