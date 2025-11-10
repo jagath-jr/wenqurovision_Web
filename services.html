@@ -35,49 +35,8 @@
             </p>
         </div>
     </section>
-
-    <section id="aluminium-and-glass" class="our-product section-1">
-        <div class="our-product-container">
-            <div class="frame">
-                <h1 data-aos="slide-up" data-aos-delay="200">HVAC Works</h1>
-                <p data-aos="fade-in" data-aos-delay="200">
-                    Our expertise in heating, ventilation, and air-conditioning has evolved with modern technology while retaining the core principles of quality and precision. From traditional systems to advanced climate control solutions, we have consistently delivered comfort and reliability across residential, commercial, and industrial projects. Over the years, our commitment to innovation and performance has made us a trusted name in HVAC installation, maintenance, and commissioning throughout the UAE.
-                    </p>
-            </div>
-            <div class="image-content">
-                <img src="Our service images/HVAC Works.webp" alt="Modern house with glass and aluminium">
-            </div>
-        </div>
-    </section>
-
-    <section id="doors-and-windows" class="our-product section-2">
-        <div class="our-product-container reversed">
-            <div class="image-content">
-                <img src="Our service images/Plumbing Works.webp" alt="Interior view with glass and aluminium fixtures">
-            </div>
-            <div class="frame">
-                <h1 data-aos="slide-up" data-aos-delay="200">Plumbing Works</h1>
-                <p data-aos="fade-in" data-aos-delay="200">
-                   Blending traditional craftsmanship with modern techniques, our plumbing services ensure precision, durability, and efficiency in every connection. From water supply and drainage systems to advanced pump installations, we provide comprehensive plumbing solutions that stand the test of time. Our work continues to support projects across the UAE, maintaining quality, sustainability, and functionality in every drop.
-                    </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="cladding-solution" class="our-product section-3">
-        <div class="our-product-container">
-            <div class="frame">
-                <h1 data-aos="slide-up" data-aos-delay="200">Civil Works</h1>
-                <p data-aos="fade-in" data-aos-delay="200">
-                    Rooted in strength and built on trust, our civil works division continues to evolve with the progress of modern construction. From structural maintenance to interior finishing, we bring together skilled workmanship and innovative materials to create lasting results. Every wall, floor, and surface we touch reflects our dedication to quality, endurance, and aesthetic perfection — shaping spaces that stand firm for generations.
-                    </p>
-            </div>
-            <div class="image-content">
-                <img src="Our service images/Civil.webp" alt="Building with modern cladding">
-            </div>
-        </div>
-    </section>
-
+<div id="services-container"></div>
+    
     
 <!-- Footer will load here -->
 <div id="common-footer"></div>
@@ -95,6 +54,48 @@
     once: true,
   });
 </script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('services-container');
+    if (!container) return;
+
+    fetch('services-data.json')
+      .then(response => response.json())
+      .then(services => {
+        let content = '';
+        services.forEach((service, index) => {
+          // Alternate layout: add 'reversed' class for even-numbered items (index 1, 3, etc.)
+          const isReversed = (index % 2 !== 0);
+
+          content += `
+            <section id="${service.id}" class="our-product section-${index + 1}">
+                <div class="our-product-container ${isReversed ? 'reversed' : ''}">
+                    <div class="image-content">
+                        <img src="${service.servicePageImage}" alt="${service.title}">
+                    </div>
+                    <div class="frame">
+                        <h1 data-aos="slide-up" data-aos-delay="200">${service.title}</h1>
+                        <p data-aos="fade-in" data-aos-delay="200">${service.servicePageDescription}</p>
+                    </div>
+                </div>
+            </section>
+          `;
+        });
+        container.innerHTML = content;
+
+        // Re-initialize AOS to animate the newly added content
+        if (typeof AOS !== 'undefined') {
+          AOS.init({
+            duration: 1000,
+            once: true,
+          });
+        }
+      })
+      .catch(error => console.error('Error loading services:', error));
+  });
+</script>
+</body>
+</html>
 </body>
     
 </html>

@@ -181,176 +181,170 @@ document.addEventListener("DOMContentLoaded", function () {
   /**
    * Services Carousel (Improved Version)
    */
-  const servicesData = [
-    {
-      img: 'Home-img/HVAC Workshome.webp',
-      title: 'HVAC Works',
-      desc: 'Installation, maintenance, commissioning of all types of air-conditioning systems including FCU, AHU, FAHU, VAV, CAV, CCU, and DX units. Ducting, insulation, chilled water systems & air balancing services.',
-      link: 'services.html#aluminium-and-glass'
-    },
-    {
-      img: 'Our service images/Electrical Works.webp',
-      title: 'Electrical Works',
-      desc: 'Installation, testing, and maintenance of electrical systems including control panels, SMDB, MCB, cable pulling & dressing, tray works, light fittings, and all types of device installations across UAE.',
-      link: 'services.html#doors-and-windows'
-    },
-    {
-      img: 'Our service images/Plumbing Works.webp',
-      title: 'Plumbing Works',
-      desc: 'Installation and maintenance of all plumbing and drainage systems including booster, transfer, submersible, circulation, and irrigation pumps. Complete piping works in PVC, UPVC, PPR, and HDPE',
-      link: 'services.html#cladding-solution'
-    },
-    {
-      img: 'Our service images/Civil.webp',
-      title: 'Civil Works',
-      desc: 'Comprehensive construction and maintenance services including wall & floor painting, tile installation, masonry work, and all types of building repair and renovation activities.',
-      link: 'services.html#civil-works'
-    }
-
-  ];
-
+  
+  // Find all the carousel elements
   const carouselTrack = document.querySelector('.carousel-track');
   const dotsContainer = document.querySelector('.carousel-dots');
   const nextBtn = document.querySelector('.carousel-btn.next');
   const prevBtn = document.querySelector('.carousel-btn.prev');
 
+  // Check if we are on a page with the services carousel
   if (carouselTrack && dotsContainer) {
-    // Populate service cards
-    servicesData.forEach(service => {
-      const card = document.createElement('div');
-      card.className = 'service-card';
-      card.innerHTML = `
-        <div class="image" style="background-image: url('${service.img}');"></div>
-        <div class="content">
-          <h4>${service.title}</h4>
-          <p>${service.desc}</p>
-          <a href="${service.link}" class="btn-small">Read More</a>
-        </div>
-      `;
-      carouselTrack.appendChild(card);
-    });
+    
+    // NEW: Function to load data and build the carousel
+    async function loadServiceCarousel() {
+      try {
+        const response = await fetch('services-data.json');
+        if (!response.ok) throw new Error('Failed to fetch services data');
+        const servicesData = await response.json();
 
-    const originalCards = Array.from(carouselTrack.children);
-    const totalOriginalCards = originalCards.length;
-    let currentIndex = 0;
-    let autoPlayInterval;
+        // Populate service cards from the fetched data
+        servicesData.forEach(service => {
+          const card = document.createElement('div');
+          card.className = 'service-card';
+          card.innerHTML = `
+            <div class="image" style="background-image: url('${service.homePageImage}');"></div>
+            <div class="content">
+              <h4>${service.title}</h4>
+              <p>${service.homePageDescription}</p>
+              <a href="services.html#${service.id}" class="btn-small">Read More</a>
+            </div>
+          `;
+          carouselTrack.appendChild(card);
+        });
 
-    // Clone cards for infinite loop
-    originalCards.forEach(card => {
-      const clone = card.cloneNode(true);
-      carouselTrack.appendChild(clone);
-    });
+        // --- All the original carousel logic starts here ---
+        // (This part is mostly unchanged, just moved inside the function)
+        const originalCards = Array.from(carouselTrack.children);
+        const totalOriginalCards = originalCards.length;
+        let currentIndex = 0;
+        let autoPlayInterval;
 
-    // Create dots
-    for (let i = 0; i < totalOriginalCards; i++) {
-      const dot = document.createElement('span');
-      dot.classList.add('dot');
-      dot.dataset.index = i;
-      dotsContainer.appendChild(dot);
-    }
-    const carouselDots = dotsContainer.querySelectorAll('.dot');
+        // Clone cards for infinite loop
+        originalCards.forEach(card => {
+          const clone = card.cloneNode(true);
+          carouselTrack.appendChild(clone);
+        });
 
-    const updateCarousel = (animate = true) => {
-      const cardWidth = carouselTrack.querySelector('.service-card').offsetWidth;
-      const cardMargin = parseInt(window.getComputedStyle(carouselTrack.querySelector('.service-card')).marginRight) + 
-                        parseInt(window.getComputedStyle(carouselTrack.querySelector('.service-card')).marginLeft);
-      const totalWidth = cardWidth + cardMargin;
+        // Create dots
+        for (let i = 0; i < totalOriginalCards; i++) {
+          const dot = document.createElement('span');
+          dot.classList.add('dot');
+          dot.dataset.index = i;
+          dotsContainer.appendChild(dot);
+        }
+        const carouselDots = dotsContainer.querySelectorAll('.dot');
 
-      carouselTrack.style.transition = animate ? 'transform 0.7s ease-in-out' : 'none';
-      carouselTrack.style.transform = `translateX(-${currentIndex * totalWidth}px)`;
+        const updateCarousel = (animate = true) => {
+          const cardWidth = carouselTrack.querySelector('.service-card').offsetWidth;
+          const cardMargin = parseInt(window.getComputedStyle(carouselTrack.querySelector('.service-card')).marginRight) + 
+                            parseInt(window.getComputedStyle(carouselTrack.querySelector('.service-card')).marginLeft);
+          const totalWidth = cardWidth + cardMargin;
 
-      // Update active dot
-      carouselDots.forEach(d => d.classList.remove('active'));
-      if (carouselDots[currentIndex % totalOriginalCards]) {
-        carouselDots[currentIndex % totalOriginalCards].classList.add('active');
-      }
-    };
+          carouselTrack.style.transition = animate ? 'transform 0.7s ease-in-out' : 'none';
+          carouselTrack.style.transform = `translateX(-${currentIndex * totalWidth}px)`;
 
-    const handleNext = () => {
-      currentIndex++;
-      updateCarousel();
+          // Update active dot
+          carouselDots.forEach(d => d.classList.remove('active'));
+          if (carouselDots[currentIndex % totalOriginalCards]) {
+            carouselDots[currentIndex % totalOriginalCards].classList.add('active');
+          }
+        };
 
-      if (currentIndex >= totalOriginalCards) {
-        setTimeout(() => {
-          carouselTrack.style.transition = 'none';
-          currentIndex = 0;
-          updateCarousel(false);
-        }, 700);
-      }
-    };
+        const handleNext = () => {
+          currentIndex++;
+          updateCarousel();
 
-    const handlePrev = () => {
-      if (currentIndex === 0) {
-        carouselTrack.style.transition = 'none';
-        currentIndex = totalOriginalCards;
+          if (currentIndex >= totalOriginalCards) {
+            setTimeout(() => {
+              carouselTrack.style.transition = 'none';
+              currentIndex = 0;
+              updateCarousel(false);
+            }, 700);
+          }
+        };
+
+        const handlePrev = () => {
+          if (currentIndex === 0) {
+            carouselTrack.style.transition = 'none';
+            currentIndex = totalOriginalCards;
+            updateCarousel(false);
+          }
+          setTimeout(() => {
+            currentIndex--;
+            updateCarousel(true);
+          }, 50); // Small delay to ensure transition applies
+        };
+
+        const startAutoplay = () => {
+          stopAutoplay(); // Clear existing interval
+          autoPlayInterval = setInterval(handleNext, 3000);
+        };
+
+        const stopAutoplay = () => {
+          clearInterval(autoPlayInterval);
+        };
+
+        // Event Listeners
+        if (nextBtn) nextBtn.addEventListener('click', () => {
+          handleNext();
+          startAutay(); // Reset autoplay timer on manual navigation
+        });
+
+        if (prevBtn) prevBtn.addEventListener('click', () => {
+          handlePrev();
+          startAutoplay(); // Reset autoplay timer
+        });
+
+        carouselTrack.addEventListener('mouseenter', stopAutoplay);
+        carouselTrack.addEventListener('mouseleave', startAutoplay);
+
+        dotsContainer.addEventListener('click', e => {
+          if (e.target.classList.contains('dot')) {
+            currentIndex = parseInt(e.target.dataset.index);
+            updateCarousel();
+            startAutoplay(); // Reset autoplay timer
+          }
+        });
+
+        // Touch events for mobile swipe
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        carouselTrack.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+          stopAutoplay();
+        }, { passive: true });
+
+        carouselTrack.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          handleSwipe();
+          startAutoplay();
+        }, { passive: true });
+
+        function handleSwipe() {
+          const threshold = 50; // Minimum swipe distance
+          if (touchEndX < touchStartX - threshold) {
+            handleNext(); // Swipe left
+          } else if (touchEndX > touchStartX + threshold) {
+            handlePrev(); // Swipe right
+          }
+        }
+
+        // Initialize
         updateCarousel(false);
-      }
-      setTimeout(() => {
-        currentIndex--;
-        updateCarousel(true);
-      }, 50); // Small delay to ensure transition applies
-    };
+        startAutoplay();
 
-    const startAutoplay = () => {
-      stopAutoplay(); // Clear existing interval
-      autoPlayInterval = setInterval(handleNext, 3000);
-    };
+        window.addEventListener('resize', () => updateCarousel(false));
 
-    const stopAutoplay = () => {
-      clearInterval(autoPlayInterval);
-    };
-
-    // Event Listeners
-    if (nextBtn) nextBtn.addEventListener('click', () => {
-      handleNext();
-      startAutoplay(); // Reset autoplay timer on manual navigation
-    });
-
-    if (prevBtn) prevBtn.addEventListener('click', () => {
-      handlePrev();
-      startAutoplay(); // Reset autoplay timer
-    });
-
-    carouselTrack.addEventListener('mouseenter', stopAutoplay);
-    carouselTrack.addEventListener('mouseleave', startAutoplay);
-
-    dotsContainer.addEventListener('click', e => {
-      if (e.target.classList.contains('dot')) {
-        currentIndex = parseInt(e.target.dataset.index);
-        updateCarousel();
-        startAutoplay(); // Reset autoplay timer
-      }
-    });
-
-    // Touch events for mobile swipe
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    carouselTrack.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-      stopAutoplay();
-    }, { passive: true });
-
-    carouselTrack.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      handleSwipe();
-      startAutoplay();
-    }, { passive: true });
-
-    function handleSwipe() {
-      const threshold = 50; // Minimum swipe distance
-      if (touchEndX < touchStartX - threshold) {
-        handleNext(); // Swipe left
-      } else if (touchEndX > touchStartX + threshold) {
-        handlePrev(); // Swipe right
+      } catch (error) {
+        console.error('Failed to load services carousel:', error);
+        carouselTrack.innerHTML = '<p style="text-align: center; color: red;">Error loading services.</p>';
       }
     }
 
-    // Initialize
-    updateCarousel(false);
-    startAutoplay();
-
-    window.addEventListener('resize', () => updateCarousel(false));
+    // Call the new function to start everything
+    loadServiceCarousel();
   }
 });
 // script.js
