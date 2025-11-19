@@ -198,7 +198,7 @@ body {
     display: none;
     position: absolute;
     top: 100%;
-    right: 0;
+    right: -20px;
     width: 100%;
     background: white;
     flex-direction: column;
