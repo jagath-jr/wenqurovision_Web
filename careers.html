@@ -21,6 +21,12 @@
     </div>
   </section>
 
+  <section class="vacancies-section">
+    <h2 data-aos="fade-up">Current Openings</h2>
+    <div class="vacancies-container" id="vacancies-list">
+      <p style="text-align:center;">Loading current job openings...</p>
+    </div>
+  </section>
   <main class="form-section">
     <div class="form-container">
       <div class="form-left">
@@ -84,5 +90,48 @@
   </script>
 
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script src="careers-email.js"></script> </body>
+  <script src="careers-email.js"></script> <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const vacanciesList = document.getElementById('vacancies-list');
+      if (!vacanciesList) return;
+
+      fetch('job-vacancies.json')
+        .then(response => response.json())
+        .then(vacancies => {
+          if (vacancies.length === 0) {
+            vacanciesList.innerHTML = '<p style="text-align:center;">There are no current openings at this time. Please check back later or submit a general application below.</p>';
+            return;
+          }
+
+          let html = '';
+          vacancies.forEach(job => {
+            html += `
+              <div class="job-vacancy-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="job-header">
+                  <h3>${job.title}</h3>
+                  <span class="job-type">${job.type}</span>
+                </div>
+                <div class="job-location">
+                  <i class="fas fa-map-marker-alt"></i> ${job.location}
+                </div>
+                <ul class="job-description">
+                  ${job.description.map(item => `<li>${item}</li>`).join('')}
+                </ul>
+              </div>
+            `;
+          });
+          vacanciesList.innerHTML = html;
+          
+          // Re-init AOS for new elements
+          if (typeof AOS !== 'undefined') {
+            AOS.init({ duration: 1000, once: true });
+          }
+        })
+        .catch(error => {
+          console.error('Error loading job vacancies:', error);
+          vacanciesList.innerHTML = '<p style="text-align:center; color: red;">Could not load job openings.</p>';
+        });
+    });
+  </script>
+  </body>
 </html>

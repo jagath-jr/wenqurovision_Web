@@ -181,3 +181,84 @@ select:invalid {
         flex-direction: column;
     }
 }
+/* --- Job Vacancies Section --- */
+.vacancies-section {
+    padding: 4rem 1rem;
+    background-color: #fff; /* White to contrast the grey form section */
+    text-align: center;
+}
+
+.vacancies-section h2 {
+    font-size: 2.2rem;
+    color: #1B7458; /* Match brand green */
+    margin-bottom: 2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.vacancies-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.job-vacancy-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-left: 5px solid #E17D27; /* Brand orange accent */
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-vacancy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dashed #eee;
+}
+
+.job-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.job-type {
+    background: #1B7458;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+
+.job-location {
+    font-size: 1rem;
+    color: #555;
+    margin: 1rem 0;
+}
+.job-location i {
+    margin-right: 5px;
+    color: #E17D27;
+}
+
+.job-description {
+    margin: 0;
+    padding-left: 20px;
+    color: #444;
+}
+
+.job-description li {
+    margin-bottom: 0.5rem;
+}
