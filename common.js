@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const clickedInsideMenu = navMenu.contains(event.target);
         const clickedMenuIcon = menuIcon && menuIcon.contains(event.target);
 
-        if (!clickedInsideMenu && !clickedIcon) {
+        if (!clickedInsideMenu && !clickedMenuIcon) {
           closeMenu();
         }
       });
